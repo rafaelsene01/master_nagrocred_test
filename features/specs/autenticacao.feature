@@ -1,4 +1,5 @@
 #language: pt
+@tag_autenticacao
 Funcionalidade: Autenticação
    Enquanto usuário cadastrado na plataforma
    Quero realizar o login e senha

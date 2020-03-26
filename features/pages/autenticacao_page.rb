@@ -11,16 +11,16 @@ class Autenticacao < SitePrism::Page
     end
 
     def verificarTelaProdutor()
-        return find(:xpath, '//div[@id="card"]/div[1]/div[1]/h3', visible: true).text   
+        return find('#card > div > div > h3').text   
     end
 
     def verificarMensagemLogin()
-        return find(:xpath, '//*[@id="login-form"]/div[5]/div/div[1]',visible: true).text   
+        return find('.v-alert__content').text   
     end
 
     def deslogar()
-        find(:xpath, '//div[@id="menu__rigth-btn"]/button[2]').click
-        find(:xpath, '//div[@id="logout"]').click
+        find('#infoClient').click
+        find('#logout').click
     end
     
 end
