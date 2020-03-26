@@ -21,28 +21,22 @@ $email = CONFIG['email']
 $senha = CONFIG['senha']
 
 Capybara.register_driver :selenium do |app|
-
+  options = Selenium::WebDriver::Chrome::Options.new
   if HEADLESS.eql?('sem_headless')
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: :chrome,
-      desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-        'chromeOptions' => { 'args' => ['--disable-infobars',
-                                        'window-size=1600,1024'] }
-      )
-    )
+    options.add_argument('--disable-infobars')
+    options.add_argument('--window-size=1600,1024')
   elsif HEADLESS.eql?('com_headless')
-    Capybara::Selenium::Driver.new(
-      app,
-      browser: :chrome,
-      desired_capabilities: Selenium::WebDriver::Remote::Capabilities.chrome(
-        'chromeOptions' => { 'args' => ['headless', 'disable-gpu',
-                                        '--disable-infobars',
-                                        'window-size=1600,1024'] }
-      )
-    )
+    options.add_argument('--headless')
+    options.add_argument('--no-sandbox')
+    options.add_argument('--disable-infobars')
+    options.add_argument('--disable-gpu')
+    options.add_argument('--window-size=1600,1024')
   end
-  end
+
+  Capybara::Selenium::Driver.new(app, browser: :chrome, options: options)
+end
+
+Capybara.javascript_driver = :headless_chrome
 
 Capybara.configure do |config|
     config.default_driver = :selenium
