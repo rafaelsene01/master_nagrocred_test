@@ -19,8 +19,8 @@ class Autenticacao < SitePrism::Page
     end
 
     def deslogar()
-        find('#infoClient').click
-        find('#logout').click
+        find_by_id('infoClient').click
+        find_by_id('logout').click
     end
     
 end

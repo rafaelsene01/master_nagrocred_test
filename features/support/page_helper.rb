@@ -8,4 +8,7 @@ module Pages
     def site
         @site ||= SitePage.new
     end
+    def cadastrar_usuario
+        @cadastrar_usuario ||= CadastrarUsuario.new
+    end
 end

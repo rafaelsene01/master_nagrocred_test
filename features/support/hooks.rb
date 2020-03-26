@@ -2,8 +2,8 @@ World(Helper)
 
 Before("@login") do
   visit "/"
-  find("#input-13").set "mateus@moreira.com"
-  find("#input-16").set "12345678"
+  find("#input-13").set $email
+  find("#input-16").set $senha
   click_button "Acessar"
 end
 
