@@ -17,9 +17,6 @@ ENVIRONMENT_TYPE = ENV['ENVIRONMENT_TYPE']
 CONFIG = YAML.load_file(File.dirname(__FILE__) +
 "/data/#{ENVIRONMENT_TYPE}.yml")
 
-$email = CONFIG['email']
-$senha = CONFIG['senha']
-
 Capybara.register_driver :selenium do |app|
   options = Selenium::WebDriver::Chrome::Options.new
   if HEADLESS.eql?('sem_headless')
@@ -42,4 +39,6 @@ Capybara.configure do |config|
     config.default_driver = :selenium
     config.default_max_wait_time = 10
     config.app_host = CONFIG['url_home']
+    $email = CONFIG['email']
+    $senha = CONFIG['senha']
 end

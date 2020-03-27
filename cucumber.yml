@@ -1,9 +1,17 @@
 ## YAML Templates
 ---
-default: -p for_ci -p homolog -p com_headless -p html
 pretty: --format pretty
 for_ci: --format progress
-html: --format html --out=index.html
-homolog: ENVIRONMENT_TYPE=development
+html: --format html --out=results/index.html
 com_headless: HEADLESS=com_headless
 sem_headless: HEADLESS=sem_headless
+
+default: -p pretty -p homolog -p sem_headless -p html
+homolog: ENVIRONMENT_TYPE=development
+
+release: -p for_ci -p homolog -p com_headless -p html
+homolog: ENVIRONMENT_TYPE=release
+
+master: -p for_ci -p homolog -p com_headless -p html
+homolog: ENVIRONMENT_TYPE=master
+

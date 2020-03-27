@@ -9,9 +9,7 @@ Funcionalidade: Autenticação
       Quando os dados for valido, logar o usuario.
       Entao vejo a tela de 'Lista de produtores'
 
-
    Esquema do Cenario: Login sem sucesso
-     
       Dado que meus dados sejam <email> <senha>
       Quando clico em acessar
       Entao vejo a <mensagem>
