@@ -6,12 +6,11 @@ html: --format html --out=results/index.html
 com_headless: HEADLESS=com_headless
 sem_headless: HEADLESS=sem_headless
 
-default: -p pretty -p homolog -p sem_headless -p html
-homolog: ENVIRONMENT_TYPE=development
+default: -p pretty -p homolog_dev -p com_headless -p html
+homolog_dev: ENVIRONMENT_TYPE=development
 
-release: -p for_ci -p homolog -p com_headless -p html
-homolog: ENVIRONMENT_TYPE=release
+release: -p for_ci -p homolog_release -p com_headless -p html
+homolog_release: ENVIRONMENT_TYPE=release
 
-master: -p for_ci -p homolog -p com_headless -p html
-homolog: ENVIRONMENT_TYPE=master
-
+master: -p for_ci -p homolog_master -p com_headless -p html
+homolog_master: ENVIRONMENT_TYPE=master
