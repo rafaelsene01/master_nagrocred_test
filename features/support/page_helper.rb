@@ -14,4 +14,7 @@ module Pages
     def navegar
         @navegar ||= Navegar.new
     end
+    def upload_documento
+        @upload_documento ||= UploadDocumento.new
+    end
 end

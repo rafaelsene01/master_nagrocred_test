@@ -1,13 +1,13 @@
 Quando("selecionar produtor") do
-  # pending # Write code here that turns the phrase above into concrete actions
+  navegar.primeiroProdutor()
 end
 
 Entao("verificar se esta no form de documentos do produtor") do
-  # pending # Write code here that turns the phrase above into concrete actions
+  upload_documento.paginaDocumento()
 end
 
 Entao("verificar os campos de documentos") do
-  # pending # Write code here that turns the phrase above into concrete actions
+  upload_documento.verificarCamposDocumento(@estado_civil)
 end
 
 Entao("validar link SCR") do
