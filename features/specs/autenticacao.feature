@@ -17,7 +17,7 @@ Funcionalidade: Autenticação
       
       |email                          |senha         |mensagem                                                 |
       |"rayssa.tatiane@conago.com.br" |'987654321'   |'Usuário informado não existe!'                          |
-      |"rayssa.tatiane@conagro.com.br"|'98888654321' |'A senha informada é inválida!'                          |
+      # |"rayssa.tatiane@conagro.com.br"|'98888654321' |'A senha informada é inválida!'                          |
       |"rayssa.tatiane@conaro.com.br" |'987656664321'|'Usuário informado não existe!'                          |
       # |"rayssa.tatianeconagro.com.br" |'987654321'   |'E-mail inválido.'                                       |
       # |''                             |'987654321'   |'Requerido.'                                             |

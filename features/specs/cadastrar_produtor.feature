@@ -1,15 +1,16 @@
 #language: pt
 @login
 @deslogar
-@tag_cadastrarUsuario
-Funcionalidade: Criar novo usuário
-  Testar criação de noso usuario
+@tag_cadastrar_usuario
+Funcionalidade: Criar novo produtor
+  Testar criação de novo produtor
 
-  Esquema do Cenario: Cadastro de produtor pessoa fisica
-    Dado que meus dados sejam <nome> <cpf> <estado_civil>
+  Esquema do Cenario: Cadastro de produtores
+    Dado que os dados do produtor sejam <nome> <cpf> <estado_civil>
     Quando cadastrar um produtor
     Entao verificar se foi cadastrado
-    E excluir o cadastro e verificar.
+    E excluir produtor
+    E verificar se o produtor foi excluido
     Exemplos:   
 
     |nome                                           |cpf             |estado_civil |
@@ -19,3 +20,4 @@ Funcionalidade: Criar novo usuário
     |"Catarina Jéssica Nascimento"                  |"46019379493"   |"Viúvo"      |
     |"André e Mariane Buffet me"                    |"05784016000156"|""           |
     |"Regina e Carlos Eduardo Casa Noturna Ltda"    |"02380872000158"|""           |
+

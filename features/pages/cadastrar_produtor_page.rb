@@ -1,4 +1,4 @@
-class CadastrarUsuario < SitePrism::Page
+class CadastrarProdutor < SitePrism::Page
 
   def adicionarProdutorPF(nome, cpf, estado_civil)
     find_by_id('cardAdd').click
