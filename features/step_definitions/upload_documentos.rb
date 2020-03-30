@@ -1,5 +1,5 @@
 Quando("selecionar produtor") do
-  navegar.primeiroProdutor()
+  acessarPrimeiroProdutor()
 end
 
 Entao("verificar se esta no form de documentos do produtor") do
@@ -31,5 +31,5 @@ Entao("verificar se foi excluido") do
 end
 
 Entao("ir para listagem de produtores") do
-  navegar.produtores()
+  navegarProdutores()
 end
