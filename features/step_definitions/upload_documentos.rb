@@ -23,9 +23,7 @@ Entao("verificar se foi enviado") do
 end
 
 Entao("excluir documentos") do
-  find('#cardPersonalDocPic').hover
-  find('#removeDocument', visible: false, wait: 5).click
-  # click_button '#removeDocument', :visible => true, :wait => 5
+  upload_documento.removerDocumento('cardPersonalDocPic')
 end
 
 Entao("verificar se foi excluido") do

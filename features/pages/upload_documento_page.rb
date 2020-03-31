@@ -34,5 +34,10 @@ class UploadDocumento < SitePrism::Page
   def verificarSeDocumentoNaoFoiEnviado(campoID)
     find("##{campoID} img[alt='Enviar documento']")
   end
+
+  def removerDocumento(campoID)
+    find("##{campoID}").hover
+    find('#removeDocument').click
+  end
   
 end
