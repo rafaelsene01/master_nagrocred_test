@@ -6,7 +6,7 @@ html: --format html --out=results/index.html
 com_headless: HEADLESS=com_headless
 sem_headless: HEADLESS=sem_headless
 
-default: -p pretty -p homolog_dev -p sem_headless -p html
+default: -p pretty -p homolog_dev -p com_headless -p html
 homolog_dev: ENVIRONMENT_TYPE=development
 
 release: -p for_ci -p homolog_release -p com_headless -p html
