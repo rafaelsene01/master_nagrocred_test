@@ -11,9 +11,6 @@ module Pages
     def cadastrar_produtor
         @cadastrar_produtor ||= CadastrarProdutor.new
     end
-    def navegar
-        @navegar ||= Navegar.new
-    end
     def upload_documento
         @upload_documento ||= UploadDocumento.new
     end

@@ -24,7 +24,7 @@ Funcionalidade: Upload de documentos
     E validar link SCR
     E fazer upload dos documentos
     E verificar se foi enviado
-    E excluir documentos e verificar
+    E excluir documentos
     E verificar se foi excluido
     E ir para listagem de produtores
     E excluir produtor

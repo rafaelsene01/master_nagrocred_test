@@ -15,19 +15,21 @@ Entao("validar link SCR") do
 end
 
 Entao("fazer upload dos documentos") do
-  # pending # Write code here that turns the phrase above into concrete actions
+  upload_documento.subirArquivoEm('personalDocPic')
 end
 
 Entao("verificar se foi enviado") do
-  # pending # Write code here that turns the phrase above into concrete actions
+  upload_documento.verificarSeDocumentoFoiEnviado('cardPersonalDocPic')
 end
 
-Entao("excluir documentos e verificar") do
-  # pending # Write code here that turns the phrase above into concrete actions
+Entao("excluir documentos") do
+  find('#cardPersonalDocPic').hover
+  find('#removeDocument', visible: false, wait: 5).click
+  # click_button '#removeDocument', :visible => true, :wait => 5
 end
 
 Entao("verificar se foi excluido") do
-  # pending # Write code here that turns the phrase above into concrete actions
+  upload_documento.verificarSeDocumentoNaoFoiEnviado('cardPersonalDocPic')
 end
 
 Entao("ir para listagem de produtores") do
