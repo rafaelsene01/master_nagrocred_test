@@ -15,8 +15,8 @@ Funcionalidade: Upload de documentos
     # |"André e Mariane Buffet me"                    |"05784016000156"|""           |
     # |"Regina e Carlos Eduardo Casa Noturna Ltda"    |"02380872000158"|""           |
 
-  Cenario: Upload de documentos e verificação de PF Casada
-    Dado que os dados do produtor sejam "Rafael Emanuel Elias da Paz" "16251734400" "Casado"
+  Esquema do Cenario: Upload de documentos e verificação de PF Casada
+    Dado que os dados do produtor sejam <nome> <cpf> <estado_civil>
     Quando cadastrar um produtor
     E selecionar produtor
     Entao verificar se esta no form de documentos do produtor
@@ -29,3 +29,8 @@ Funcionalidade: Upload de documentos
     E ir para listagem de produtores
     E excluir produtor
     E verificar se o produtor foi excluido
+    Exemplos:   
+
+    |nome                                           |cpf             |estado_civil |
+    |"Rafael Emanuel Elias da Paz"                  |"16251734400"   |"Casado"     |
+    |"Benedito Danilo Silva"                        |"90592202429"   |"Solteiro"   |

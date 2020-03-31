@@ -15,19 +15,20 @@ Entao("validar link SCR") do
 end
 
 Entao("fazer upload dos documentos") do
-  upload_documento.subirArquivoEm('personalDocPic')
+  upload_documento.subirArquivo(@estado_civil)
+  
 end
 
 Entao("verificar se foi enviado") do
-  upload_documento.verificarSeDocumentoFoiEnviado('cardPersonalDocPic')
+  upload_documento.verificarSeDocumentoFoiEnviado(@estado_civil)
 end
 
 Entao("excluir documentos") do
-  upload_documento.removerDocumento('cardPersonalDocPic')
+  upload_documento.removerDocumento(@estado_civil)
 end
 
 Entao("verificar se foi excluido") do
-  upload_documento.verificarSeDocumentoNaoFoiEnviado('cardPersonalDocPic')
+  upload_documento.verificarSeDocumentoNaoFoiEnviado(@estado_civil)
 end
 
 Entao("ir para listagem de produtores") do
