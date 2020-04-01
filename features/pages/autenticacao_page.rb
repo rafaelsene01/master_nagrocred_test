@@ -7,15 +7,20 @@ class Autenticacao < SitePrism::Page
     def logar(email, senha)
         campo_email.set email
         campo_senha.set senha
-        click_button "Acessar"          
+        if page.has_no_css?('v-btn--disabled') and 
+            (senha.length >= 8 || senha.length == 0) and 
+            (email.index('@') || email.length == 0)
+            click_button "Acessar" 
+        end        
     end
 
-    def verificarTelaProdutor()
-        return find('#card > div > div > h3').text   
+    def verificarTelaProdutor(text)
+        page.has_text?(text)
     end
 
-    def verificarMensagemLogin()
-        return find('.v-alert__content').text   
+    def verificarMensagemLogin(text)
+        page.has_text?(text)
+        # return find('.v-alert__content').text   
     end
 
     def deslogar()

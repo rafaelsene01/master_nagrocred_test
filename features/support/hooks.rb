@@ -11,6 +11,11 @@ After '@deslogar' do
   autenticacao.deslogar
 end 
 
+After '@reset_sessions' do
+  Capybara.reset_sessions!
+  visit "/"
+end
+
 # depois de cada cenario ele tira um print e remove todos os espacos virgulas
 After do |scenario|
   scenario_name = scenario.name.gsub(/\s+/, '_').tr('/', '_')
