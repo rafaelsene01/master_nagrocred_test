@@ -2,7 +2,7 @@ class UploadDocumento < SitePrism::Page
 
   def paginaDocumento()
     find(".sidebar span", text: "Documentação").click
-    page.assert_text('Documentos do Produtor')
+    page.assert_text('Documentos')
   end
 
   def paginaEndividamento()
@@ -10,84 +10,176 @@ class UploadDocumento < SitePrism::Page
     page.assert_text('Lista de endividamento')
   end
 
-  #personalDocPic #cardFile
-  def verificarCamposDocumento(estado_civil)
-    # estado_civil
+  def camposBasicosPF()
     page.assert_selector('#cardPersonalDocPic')
     page.assert_selector('#cardAddressDocPic')
     page.assert_selector('#cardIrpfPic')
     page.assert_selector('#cardScrPic')
-    # page.assert_selector('#cardMarriageCertificatePic')
-    # page.assert_selector('#cardSpousePersonalDocPic')
-    # page.assert_selector('#cardSpouseIrpfPic')
+  end
+
+  def camposPFCasado()
+    camposBasicosPF()
+    page.assert_selector('#cardMarriageCertificatePic')
+    page.assert_selector('#cardSpousePersonalDocPic')
+    page.assert_selector('#cardSpouseIrpfPic')
+  end
+
+  def camposBasicosPJ()
+    page.assert_selector('#cardBalancePic')
+    page.assert_selector('#cardDrePic')
+    page.assert_selector('#cardScrPic')
+  end
+
+  def verificarCamposDocumento(estado_civil)
+    case estado_civil
+    when 'Casado'
+      camposPFCasado()
+    when 'Solteiro', 'Divorciado', 'Viúvo'
+      camposBasicosPF()
+    else
+      camposBasicosPJ()
+    end
+  end
+
+  def camposBasicosPFSubirArquivo(foto)
+    attach_file 'personalDocPic', foto, :make_visible => true
+    attach_file 'addressDocPic', foto, :make_visible => true
+    attach_file 'irpfPic', foto, :make_visible => true
+    attach_file 'scrPic', foto, :make_visible => true
+  end
+
+  def camposPFCasadoSubirArquivo(foto)
+    camposBasicosPFSubirArquivo(foto)
+    attach_file 'marriageCertificatePic', foto, :make_visible => true
+    attach_file 'spousePersonalDocPic', foto, :make_visible => true
+    attach_file 'spouseIrpfPic', foto, :make_visible => true
+  end
+
+  def camposBasicosPJSubirArquivo(foto)
+    attach_file 'balancePic', foto, :make_visible => true
+    attach_file 'drePic', foto, :make_visible => true
+    attach_file 'scrPic', foto, :make_visible => true
   end
 
   def subirArquivo(estado_civil)
     @foto = File.join(Dir.pwd, 'features/download/drops.png')  
 
     case estado_civil
-    when 'Casado', 'Solteiro'
-      attach_file 'personalDocPic', @foto, :make_visible => true
-    when 2..10
-      puts "Seu número está entre 2 e 10"
-    when 11,13,17,19
-      puts "é um número primo entre 10 e 20"
-    when String
-      puts "é uma String"
+    when 'Casado'
+      camposPFCasadoSubirArquivo(@foto)
+    when 'Solteiro', 'Divorciado', 'Viúvo'
+      camposBasicosPFSubirArquivo(@foto)
     else
-      puts "Qualquer outra coisa."
+      camposBasicosPJSubirArquivo(@foto)
     end
   end
 
   def verificarSeDocumentoFoiEnviado(estado_civil)
-    case estado_civil
-    when 'Casado', 'Solteiro'
-      find("#cardPersonalDocPic img[alt='Enviado com sucesso']")
-    when 2..10
-      puts "Seu número está entre 2 e 10"
-    when 11,13,17,19
-      puts "é um número primo entre 10 e 20"
-    when String
-      puts "é uma String"
-    else
-      puts "Qualquer outra coisa."
-    end
-    # find("##{campoID} img[alt='Enviado com sucesso']")
-  end
 
-  def verificarSeDocumentoNaoFoiEnviado(estado_civil)
+    base = ['cardPersonalDocPic','cardAddressDocPic','cardIrpfPic','cardScrPic']
+    casado = ['cardMarriageCertificatePic','cardSpousePersonalDocPic','cardSpouseIrpfPic']
+    pj = ['cardBalancePic','cardDrePic','cardScrPic']
+    @novafoto = File.join(Dir.pwd, 'features/download/drops.png')  
+
     case estado_civil
-    when 'Casado', 'Solteiro'
-      puts "Seu número é 1"
-    when 2..10
-      puts "Seu número está entre 2 e 10"
-    when 11,13,17,19
-      puts "é um número primo entre 10 e 20"
-    when String
-      puts "é uma String"
+    when 'Casado'
+      base.each do |id|
+        begin  
+          find("##{id} img[alt='Enviado com sucesso']")
+        rescue 
+            @text = id.gsub 'card', ''
+            @text = @text[0].downcase + @text[1..@text.length]
+            attach_file @text, @novafoto, :make_visible => true
+        ensure 
+          find("##{id} img[alt='Enviado com sucesso']")
+        end 
+      end
+      casado.each do |id|
+        begin  
+          find("##{id} img[alt='Enviado com sucesso']")
+        rescue 
+            @text = id.gsub 'card', ''
+            @text = @text[0].downcase + @text[1..@text.length]
+            attach_file @text, @novafoto, :make_visible => true
+        ensure 
+          find("##{id} img[alt='Enviado com sucesso']")
+        end 
+      end
+    when 'Solteiro', 'Divorciado', 'Viúvo'
+      base.each do |id|
+        begin  
+          find("##{id} img[alt='Enviado com sucesso']")
+        rescue 
+            @text = id.gsub 'card', ''
+            @text = @text[0].downcase + @text[1..@text.length]
+            attach_file @text, @novafoto, :make_visible => true
+        ensure 
+          find("##{id} img[alt='Enviado com sucesso']")
+        end 
+      end
     else
-      puts "Qualquer outra coisa."
+      pj.each do |id|
+        begin  
+          find("##{id} img[alt='Enviado com sucesso']")
+        rescue 
+            @text = id.gsub 'card', ''
+            @text = @text[0].downcase + @text[1..@text.length]
+            attach_file @text, @novafoto, :make_visible => true
+        ensure 
+          find("##{id} img[alt='Enviado com sucesso']")
+        end 
+      end
     end
-    # find("##{campoID} img[alt='Enviar documento']")
-    find("#cardPersonalDocPic img[alt='Enviar documento']")
   end
 
   def removerDocumento(estado_civil)
-    case estado_civil
-    when 'Casado', 'Solteiro'
-      find_by_id("cardPersonalDocPic").hover
-      find_by_id('removeDocument').click
-    when 2..10
-      puts "Seu número está entre 2 e 10"
-    when 11,13,17,19
-      puts "é um número primo entre 10 e 20"
-    when String
-      puts "é uma String"
-    else
-      puts "Qualquer outra coisa."
-    end
-    # find_by_id("#{campoID}").hover
 
+    base = ['cardPersonalDocPic','cardAddressDocPic','cardIrpfPic','cardScrPic']
+    casado = ['cardMarriageCertificatePic','cardSpousePersonalDocPic','cardSpouseIrpfPic']
+    pj = ['cardBalancePic','cardDrePic','cardScrPic']
+    case estado_civil
+    when 'Casado'
+      base.each do |id|
+        find_by_id("#{id}").hover
+        find_by_id('removeDocument').click
+      end
+      casado.each do |id|
+        find_by_id("#{id}").hover
+        find_by_id('removeDocument').click
+      end
+    when 'Solteiro', 'Divorciado', 'Viúvo'
+      base.each do |id|
+        find_by_id("#{id}").hover
+        find_by_id('removeDocument').click
+      end
+    else
+      pj.each do |id|
+        find_by_id("#{id}").hover
+        find_by_id('removeDocument').click
+      end
+    end
   end
-  
+
+  def verificarSeDocumentoNaoFoiEnviado(estado_civil)
+    base = ['cardPersonalDocPic','cardAddressDocPic','cardIrpfPic','cardScrPic']
+    casado = ['cardMarriageCertificatePic','cardSpousePersonalDocPic','cardSpouseIrpfPic']
+    pj = ['cardBalancePic','cardDrePic','cardScrPic']
+    case estado_civil
+    when 'Casado'
+      base.each do |id|
+        find("##{id} img[alt='Enviar documento']")
+      end
+      casado.each do |id|
+        find("##{id} img[alt='Enviar documento']")
+      end
+    when 'Solteiro', 'Divorciado', 'Viúvo'
+      base.each do |id|
+        find("##{id} img[alt='Enviar documento']")
+      end
+    else
+      pj.each do |id|
+        find("##{id} img[alt='Enviar documento']")
+      end
+    end
+  end
 end
