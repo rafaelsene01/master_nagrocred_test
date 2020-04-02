@@ -13,5 +13,8 @@ module Pages
     end
     def upload_documento
         @upload_documento ||= UploadDocumento.new
+    end    
+    def analise_credito
+        @analise_credito ||= AnaliseCredito.new
     end
 end

@@ -4,6 +4,7 @@ require 'capybara/rspec/matchers'
 require 'selenium-webdriver'
 require 'site_prism'
 require 'rspec'
+require 'faker'
 require_relative 'page_helper.rb'
 require_relative 'helper.rb'
 

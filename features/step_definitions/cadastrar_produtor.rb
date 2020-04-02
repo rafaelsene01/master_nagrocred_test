@@ -23,6 +23,7 @@ Entao("verificar se foi cadastrado") do
 end
 
 Quando("excluir produtor") do
+  navegarProdutores()
   cadastrar_produtor.excluirProdutor()
 end
 

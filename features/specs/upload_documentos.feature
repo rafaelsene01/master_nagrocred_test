@@ -10,8 +10,9 @@ Funcionalidade: Upload de documentos
   Esquema do Cenario: Upload de documentos e verificação de PF Casada
     Dado que os dados do produtor sejam <nome> <cpf> <estado_civil>
     Quando cadastrar um produtor
+    Entao verificar se foi cadastrado
     E selecionar produtor
-    Entao verificar se esta no form de documentos do produtor
+    E verificar se esta no form de documentos do produtor
     E verificar os campos de documentos
     E validar link SCR
     E fazer upload dos documentos

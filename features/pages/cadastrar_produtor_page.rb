@@ -28,7 +28,7 @@ class CadastrarProdutor < SitePrism::Page
   end
 
   def excluirProdutor()
-    find('.row div + div button').click
+    find('.row div > div button').hover.click
     find(".v-list-item__title", text: 'Excluir').click
     click_button 'Ok'
   end
