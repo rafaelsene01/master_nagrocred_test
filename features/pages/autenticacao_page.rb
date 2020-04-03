@@ -7,11 +7,11 @@ class Autenticacao < SitePrism::Page
     def logar(email, senha)
         campo_email.set email
         campo_senha.set senha
-        # if page.has_no_css?('v-btn--disabled') and 
-        #     (senha.length >= 8 || senha.length == 0) and 
-        #     (email.index('@') || email.length == 0)
+        if page.has_no_css?('v-btn--disabled') and 
+            (senha.length >= 8 || senha.length == 0) and 
+            (email.index('@') || email.length == 0)
             click_button "Acessar" 
-        # end        
+        end        
     end
 
     def verificarTelaProdutor(text)
