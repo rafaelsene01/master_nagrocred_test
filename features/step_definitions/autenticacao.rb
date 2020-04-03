@@ -8,7 +8,6 @@ end
 
 Entao("vejo a tela de {string}") do |string|
   autenticacao.verificarTelaProdutor(string)
-
 end
 
 Dado("que meus dados sejam {string} {string}") do |email, senha|
@@ -23,6 +22,4 @@ end
 
 Entao("vejo a {string}") do |mensagem|
   autenticacao.verificarMensagemLogin(mensagem)
-  # @texto = autenticacao.verificarMensagemLogin()
-  # expect(@texto).to eq mensagem      
 end

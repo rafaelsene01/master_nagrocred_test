@@ -1,7 +1,7 @@
 #language: pt
 @login
 @deslogar
-@tag_cadastrar_usuario
+@tag_cadastrar_produtor
 Funcionalidade: Criar novo produtor
   Testar criação de novo produtor
 

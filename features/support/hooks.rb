@@ -5,6 +5,14 @@ Before("@login") do
   find("#input-13").set $email
   find("#input-16").set $senha
   click_button "Acessar"
+
+  begin  
+    find('.row div > div button', wait: 2).hover.click
+    find(".v-list-item__title", text: 'Excluir', wait: 2).click
+    click_button 'Ok'
+  rescue 
+  ensure 
+  end 
 end
 
 After '@deslogar' do 
