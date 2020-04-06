@@ -16,12 +16,13 @@ Funcionalidade: Pedido de Análise de Crédito
     E selecionar consulta basica
     E confirmar a solicitação de analise
     E ir para pagina de listagem de analises e verificar se foi criada
+    E selecionar analise criada e verificar os dados.
     E excluir produtor
     E verificar se o produtor foi excluido
     Exemplos:   
 
     |cpf             |estado_civil |
-    |"16251734400"   |"Casado"     |
+    |"88878600687"   |"Casado"     |
     # |"90592202429"   |"Solteiro"   |
     # |"13019303427"   |"Divorciado" |
     # |"46019379493"   |"Viúvo"      |

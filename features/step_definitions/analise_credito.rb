@@ -9,20 +9,22 @@ Entao("abrir form de pedido de analise de credito") do
 end
 
 Entao("selecionar produtor no campo de adicionar produtor") do
-  find_by_id('selectedClients').set @nome
-  find('div.v-list-item__title', text: @nome).click
+  analise_credito.inputAutocompleteADDProdutor(@nome)
 end
 
 Entao("selecionar consulta basica") do
-  find('#selectedClients').native.send_keys(:tab)
-  check 'tipo_analise_0', allow_label_click: true
+  analise_credito.selecionarConsultaBasica()
 end
 
 Entao("confirmar a solicitação de analise") do
-  first('span', text: 'Confirmar e solicitar').click
-  click_button 'Ok'
+  analise_credito.confirmarSolicitacaoAnalise()
 end
 
 Entao("ir para pagina de listagem de analises e verificar se foi criada") do
   analiseCredito()
+  analise_credito.validarCriacaoAnalise(@nome)
+end
+
+Entao("selecionar analise criada e verificar os dados.") do
+  analise_credito.selecionarValidarDadosAnaliseCriada(@nome, '888.786.006-87', @estado_civil)
 end
