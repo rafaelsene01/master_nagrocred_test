@@ -26,5 +26,5 @@ Entao("ir para pagina de listagem de analises e verificar se foi criada") do
 end
 
 Entao("selecionar analise criada e verificar os dados.") do
-  analise_credito.selecionarValidarDadosAnaliseCriada(@nome, '888.786.006-87', @estado_civil)
+  analise_credito.selecionarValidarDadosAnaliseCriada(@nome, maskCpfCnpj(@cpf), @estado_civil)
 end

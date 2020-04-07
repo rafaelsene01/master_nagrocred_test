@@ -10,3 +10,4 @@ gem 'site_prism', '2.15.1'
 gem 'fastri'
 gem 'rcodetools'
 gem 'faker'
+gem "cpf_cnpj"

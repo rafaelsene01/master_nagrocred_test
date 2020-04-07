@@ -8,6 +8,7 @@ require 'faker'
 require_relative 'page_helper.rb'
 require_relative 'helper.rb'
 require 'date'
+require "cpf_cnpj"
 
 World(Capybara::DSL)
 World(Capybara::RSpecMatchers)

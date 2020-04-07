@@ -22,4 +22,14 @@ module Helper
     page.has_css?('.row div + div')
     find('.row div + div .card').click
   end
+
+  def maskCpfCnpj(val)
+    if (val.length <= 11) and
+      cpf = CPF.new(val)
+      return cpf.formatted      
+    elsif 
+      cnpj = CNPJ.new(val)
+      return cnpj.formatted   
+    end
+  end
 end
