@@ -8,7 +8,7 @@ Funcionalidade: Upload de documentos
   Excluir produtor no final
 
   Esquema do Cenario: Upload de documentos e verificação de PF Casada
-    Dado que os dados do produtor sejam <nome> <cpf> <estado_civil>
+    Dado que os dados do produtor sejam <nome> <estado_civil>
     Quando cadastrar um produtor
     Entao verificar se foi cadastrado
     E selecionar produtor
@@ -24,10 +24,10 @@ Funcionalidade: Upload de documentos
     E verificar se o produtor foi excluido
     Exemplos:   
 
-    |nome                                           |cpf             |estado_civil |
-    |"Rafael Emanuel Elias da Paz"                  |"16251734400"   |"Casado"     |
-    |"Benedito Danilo Silva"                        |"90592202429"   |"Solteiro"   |
-    |"Erick Nelson da Paz"                          |"13019303427"   |"Divorciado" |
-    |"Catarina Jéssica Nascimento"                  |"46019379493"   |"Viúvo"      |
-    |"André e Mariane Buffet me"                    |"05784016000156"|""           |
-    |"Regina e Carlos Eduardo Casa Noturna Ltda"    |"02380872000158"|""           |
+    |nome                                           |estado_civil |
+    |"Rafael Emanuel Elias da Paz"                  |"Casado"     |
+    |"Benedito Danilo Silva"                        |"Solteiro"   |
+    |"Erick Nelson da Paz"                          |"Divorciado" |
+    |"Catarina Jéssica Nascimento"                  |"Viúvo"      |
+    |"André e Mariane Buffet me"                    |""           |
+    |"Regina e Carlos Eduardo Casa Noturna Ltda"    |""           |

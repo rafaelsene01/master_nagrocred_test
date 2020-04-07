@@ -1,6 +1,6 @@
-Dado("que os dados do produtor sejam {string} {string} {string}") do |nome, cpf, estado_civil|
+Dado("que os dados do produtor sejam {string} {string}") do |nome, estado_civil|
   @nome = nome
-  @cpf = cpf
+  @cpf = estado_civil.empty? ? CNPJ.generate : CPF.generate
   @estado_civil = estado_civil
 end
 

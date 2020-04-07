@@ -23,8 +23,3 @@ Funcionalidade: Pedido de Análise de Crédito
 
     |cpf             |estado_civil |
     |"88878600687"   |"Casado"     |
-    # |"90592202429"   |"Solteiro"   |
-    # |"13019303427"   |"Divorciado" |
-    # |"46019379493"   |"Viúvo"      |
-    # |"05784016000156"|""           |
-    # |"02380872000158"|""           |
