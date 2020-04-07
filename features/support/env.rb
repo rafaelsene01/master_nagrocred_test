@@ -40,7 +40,7 @@ Capybara.javascript_driver = :headless_chrome
 
 Capybara.configure do |config|
     config.default_driver = :selenium
-    config.default_max_wait_time = 10
+    config.default_max_wait_time = 30
     config.app_host = CONFIG['url_home']
     $email = CONFIG['email']
     $senha = CONFIG['senha']

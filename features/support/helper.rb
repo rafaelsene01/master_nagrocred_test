@@ -18,9 +18,9 @@ module Helper
     find_by_id("menu-analise-credito").click
   end
 
-  def acessarPrimeiroProdutor()
-    page.has_css?('.row div + div')
-    find('.row div + div .card').click
+  def acessarProdutor(nome)
+    @changeName = nome.downcase.gsub ' ', '_'
+    find("##{@changeName}").click
   end
 
   def maskCpfCnpj(val)

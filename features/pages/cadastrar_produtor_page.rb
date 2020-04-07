@@ -18,19 +18,28 @@ class CadastrarProdutor < SitePrism::Page
     click_button 'Ok'
   end
   
-  def verificarNomeProdutor()
-    return find(".row div + div > p.subtitle-1").text
+  def verificarNomeProdutor(nome)
+    @changeName = nome.downcase.gsub ' ', '_'
+    return find("##{@changeName} p.subtitle-1", visible: true).text
   end
 
-  def verificarEstadoCivilProdutor()
-    @texto = first(".row div + div > p").text
-    return @texto.gsub! 'Pessoa Física - ', ''
+  def verificarEstadoCivilProdutor(nome)
+    @changeName = nome.downcase.gsub ' ', '_'
+    @texto = first("##{@changeName} p", visible: true).text
+    return @texto.gsub 'Pessoa Física - ', ''
   end
 
-  def excluirProdutor()
-    find('.row div > div button').hover.click
+  def excluirProdutor(nome)
+    sleep(1)
+    @changeName = nome.downcase.gsub ' ', '_'
+    find("##{@changeName} button").click
     find(".v-list-item__title", text: 'Excluir').click
     click_button 'Ok'
+  end
+
+  def verificarSeProdutorFoiExcluido(nome)
+    @changeName = nome.downcase.gsub ' ', '_'
+    page.assert_no_selector("##{@changeName}")
   end
   
 end

@@ -11,3 +11,4 @@ gem 'fastri'
 gem 'rcodetools'
 gem 'faker'
 gem "cpf_cnpj"
+gem "parallel_tests"

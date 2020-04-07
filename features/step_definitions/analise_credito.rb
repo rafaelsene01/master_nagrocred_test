@@ -1,5 +1,9 @@
 Dado("que os dados do produtor para pedido de analise sejam {string} {string}") do |cpf, estado_civil|
-  @nome = "#{Faker::Name.first_name.gsub(/[.,']/, '')} #{Faker::Name.first_name.gsub(/[.,']/, '')}"
+  @nome = "#{Faker::Name.first_name.gsub(/[.,']/, '')}"
+  begin
+    @nome = "#{Faker::Name.first_name.gsub(/[.,']/, '')}"
+  end while 3 >= @nome.length
+
   @cpf = cpf
   @estado_civil = estado_civil 
 end

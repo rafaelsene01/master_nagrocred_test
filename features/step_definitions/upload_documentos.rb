@@ -1,5 +1,5 @@
 Quando("selecionar produtor") do
-  acessarPrimeiroProdutor()
+  acessarProdutor(@nome)
 end
 
 Entao("verificar se esta no form de documentos do produtor") do
