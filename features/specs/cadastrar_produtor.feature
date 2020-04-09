@@ -19,5 +19,3 @@ Funcionalidade: Criar novo produtor
     |"Divorciado" |
     |"Viúvo"      |
     |""           |
-    |""           |
-

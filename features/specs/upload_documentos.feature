@@ -7,7 +7,7 @@ Funcionalidade: Upload de documentos
   Fazer o upload dos documentos, verificar se foi enviado, excluir e verificar exclusão
   Excluir produtor no final
 
-  Esquema do Cenario: Upload de documentos e verificação de PF Casada
+  Esquema do Cenario: Upload de documentos e verificação
     Dado que os dados do produtor sejam <estado_civil>
     Quando cadastrar um produtor
     Entao verificar se foi cadastrado
@@ -29,5 +29,4 @@ Funcionalidade: Upload de documentos
     |"Solteiro"   |
     |"Divorciado" |
     |"Viúvo"      |
-    |""           |
     |""           |
