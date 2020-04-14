@@ -20,7 +20,7 @@ module Helper
 
   def acessarProdutor(nome)
     @changeName = nome.downcase.gsub ' ', '_'
-    find("##{@changeName}").click
+    find_by_id("#{@changeName}").click
   end
 
   def maskCpfCnpj(val)
