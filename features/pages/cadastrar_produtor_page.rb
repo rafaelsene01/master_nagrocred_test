@@ -2,7 +2,7 @@ class CadastrarProdutor < SitePrism::Page
 
   def adicionarProdutorPF(nome, cpf, estado_civil)
     find_by_id('cardAdd').click
-    find_by_id('cpfCnpj').set cpf
+    find_by_id('cpf_cnpj').set cpf
     find_by_id('name').set nome
     find('.v-select__selections').click
     find(".v-list-item__title", text: estado_civil).click
@@ -10,9 +10,9 @@ class CadastrarProdutor < SitePrism::Page
     click_button 'Ok'
   end
 
-  def adicionarProdutorPJ(nome, cpf)
+  def adicionarProdutorPJ(nome, cnpj)
     find_by_id('cardAdd').click
-    find_by_id('cpfCnpj').set cpf
+    find_by_id('cpf_cnpj').set cnpj
     find_by_id('name').set nome
     click_button 'Salvar e completar'
     click_button 'Ok'
@@ -32,9 +32,12 @@ class CadastrarProdutor < SitePrism::Page
   def excluirProdutor(nome)
     sleep(1)
     @changeName = nome.downcase.gsub ' ', '_'
-    find("##{@changeName} button").click
-    find(".v-list-item__title", text: 'Excluir').click
-    click_button 'Ok'
+    begin  
+      find("##{@changeName} button").click
+      find(".v-list-item__title", text: 'Excluir').click
+      click_button 'Ok'
+    rescue 
+    end 
   end
 
   def verificarSeProdutorFoiExcluido(nome)
