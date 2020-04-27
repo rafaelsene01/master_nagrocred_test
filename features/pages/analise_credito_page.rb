@@ -11,11 +11,11 @@ class AnaliseCredito < SitePrism::Page
 
   def selecionarConsultaBasica()
     find('#selectedClients').native.send_keys(:tab)
-    check 'tipo_analise_0', allow_label_click: true
+    check 'tipo_analise_1', allow_label_click: true
   end
 
   def confirmarSolicitacaoAnalise()
-    first('span', text: 'Confirmar e solicitar').click
+    click_button 'Solicitar'
     click_button 'Ok'
   end
 
