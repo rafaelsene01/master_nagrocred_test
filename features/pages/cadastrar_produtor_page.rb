@@ -10,7 +10,7 @@ class CadastrarProdutor < SitePrism::Page
     find_by_id('name').set nome
     find('.v-select__selections').click
     find(".v-list-item__title", text: estado_civil).click
-    click_button 'Salvar e completar'
+    click_button 'Salvar'
     click_button 'Ok'
   end
 
@@ -22,7 +22,7 @@ class CadastrarProdutor < SitePrism::Page
     end 
     find_by_id('cpf_cnpj').set cnpj
     find_by_id('name').set nome
-    click_button 'Salvar e completar'
+    click_button 'Salvar'
     click_button 'Ok'
   end
   
