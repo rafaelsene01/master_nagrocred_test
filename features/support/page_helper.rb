@@ -22,5 +22,9 @@ module Pages
         @endividamento ||= Endividamento.new
     end
 
+    def recebivel
+        @recebivel ||= Recebivel.new
+    end
+    
     
 end
