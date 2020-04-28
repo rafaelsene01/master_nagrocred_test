@@ -17,4 +17,10 @@ module Pages
     def analise_credito
         @analise_credito ||= AnaliseCredito.new
     end
+
+    def endividamento
+        @endividamento ||= Endividamento.new
+    end
+
+    
 end
